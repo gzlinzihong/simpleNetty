@@ -91,10 +91,8 @@ public class Application {
         closeFuture.addListener(new Listener() {
             @Override
             public void complete(ChannelFuture future) {
-                if (!future.isDone()){
-                    worker.shutdown();
-                    boss.shutdown();
-                }
+                worker.shutdown();
+                boss.shutdown();
             }
         },1);
         // 监听器有优先级，数字越小越先执行
